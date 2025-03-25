@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TextInput, Button, StyleSheet, useColorScheme  } from 'react-native';
+import { View, Text, Button, StyleSheet, useColorScheme } from 'react-native';
 
 export default function ContaScreen() {
   const bebidas = [
@@ -14,6 +14,9 @@ export default function ContaScreen() {
     // Lógica para fechar a conta
     alert('Conta fechada!');
   };
+
+  const colorScheme = useColorScheme();
+  const styles = colorScheme === 'dark' ? darkStyles : lightStyles;
 
   return (
     <View style={styles.container}>
@@ -30,17 +33,19 @@ export default function ContaScreen() {
   );
 }
 
-const styles = StyleSheet.create({
+const lightStyles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     padding: 16,
+    backgroundColor: '#fff',
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 24,
+    color: '#000',
   },
   bebidaContainer: {
     flexDirection: 'row',
@@ -52,42 +57,17 @@ const styles = StyleSheet.create({
   },
   bebidaNome: {
     fontSize: 18,
+    color: '#000',
   },
   bebidaPreco: {
     fontSize: 18,
+    color: '#000',
   },
   total: {
     fontSize: 20,
     fontWeight: 'bold',
     marginVertical: 24,
-  },
-});
-
-const lightStyles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 16,
-    backgroundColor: '#fff',
-  },
-  title: {
-    fontSize: 24,
-    marginBottom: 24,
     color: '#000',
-  },
-  input: {
-    width: '100%',
-    padding: 8,
-    marginVertical: 8,
-    borderWidth: 1,
-    borderColor: '#ccc',
-    borderRadius: 4,
-    color: '#000',
-  },
-  error: {
-    color: 'red',
-    marginBottom: 16,
   },
 });
 
@@ -101,20 +81,30 @@ const darkStyles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
+    fontWeight: 'bold',
     marginBottom: 24,
     color: '#fff',
   },
-  input: {
+  bebidaContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     width: '100%',
-    padding: 8,
-    marginVertical: 8,
-    borderWidth: 1,
-    borderColor: '#555',
-    borderRadius: 4,
+    paddingVertical: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: '#555',
+  },
+  bebidaNome: {
+    fontSize: 18,
     color: '#fff',
   },
-  error: {
-    color: 'red',
-    marginBottom: 16,
+  bebidaPreco: {
+    fontSize: 18,
+    color: '#fff',
+  },
+  total: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginVertical: 24,
+    color: '#fff',
   },
 });
