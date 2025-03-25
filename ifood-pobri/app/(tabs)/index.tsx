@@ -1,15 +1,15 @@
-import { StyleSheet } from 'react-native';
-
+import { Text, View,StyleSheet } from 'react-native';
 import EditScreenInfo from '@/components/EditScreenInfo';
-import { Text, View } from '@/components/Themed';
 import { useState } from 'react';
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
 
-
-export default function TabOneScreen(){
+export default function HomeScreen(){
   return (
     <View style={styles.container}>
+      <StatusBar style='light' backgroundColor="#000" translucent={true} />
       <Text style={styles.title}>Cardápio Bar do Tião</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      <View style={styles.separator} />
     </View>
   );
 }
